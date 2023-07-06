@@ -1,26 +1,45 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <div class="card-container">
+      <ProjectCard v-for="project in projects" :key="project.name" v-bind="project" />
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ProjectCard from './components/ProjectCard.vue';
+import ProjectsData from './proyectos.json';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ProjectCard
+  },
+  data() {
+    return {
+      projects: []
+    }
+  },
+  created() {
+    // Ordena los proyectos por disponibilidad.
+    this.projects = ProjectsData.sort((a, b) => {
+      if (a.isAvailable && !b.isAvailable) return -1;
+      if (!a.isAvailable && b.isAvailable) return 1;
+      return 0;
+    });
   }
-}
+};
+
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;  
+  justify-content: space-around; 
+  align-items: stretch;  
 }
 </style>
