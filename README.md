@@ -6,7 +6,7 @@ Este proyecto consiste en una aplicación Vue.js que genera tarjetas de proyecto
 
 ## Instrucciones de instalación y ejecución
 
-1. Clone el repositorio con `git clone <URL_del_repositorio>`.
+1. Clone el repositorio con `git clone https://github.com/marcoantonnlopez/Buying-Cards-in-Vue.git`.
 2. Navegue hasta el directorio del proyecto con `cd <nombre_del_directorio>`.
 3. Instale las dependencias del proyecto con `npm install`.
 4. Ejecute el proyecto en modo desarrollo con `npm run serve`.
